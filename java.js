@@ -1,17 +1,15 @@
-function load(){
-	document.body.addEventListener("wheel", zoomShortcut); //add the event
-  }
-  
-  function zoomShortcut(e){
-	if(e.ctrlKey){            //[ctrl] pressed?
-	  event.preventDefault();  //prevent zoom
-	  if(e.deltaY<0){        //scrolling up?
-							  //do something..
-		return false;
-	  }
-	  if(e.deltaY>0){        //scrolling down?
-							  //do something..
-		return false;
-	  }
-	}
-  }
+$(document).keydown(function(event) {
+if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+        event.preventDefault();
+     }
+    // 107 Num Key  +
+    // 109 Num Key  -
+    // 173 Min Key  hyphen/underscore key
+    // 61 Plus key  +/= key
+});
+
+$(window).bind('mousewheel DOMMouseScroll', function (event) {
+       if (event.ctrlKey == true) {
+       event.preventDefault();
+       }
+});
